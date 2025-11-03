@@ -1,0 +1,5 @@
+# Example 1: Simple linear dependencies
+A: B, C
+B: D
+C: D
+D:

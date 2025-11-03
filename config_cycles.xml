@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <package_name>A</package_name>
+    <repository_url>test_cycles.txt</repository_url>
+    <test_mode>true</test_mode>
+    <output_file>cycle_graph.png</output_file>
+</configuration>

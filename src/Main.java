@@ -28,6 +28,31 @@ public class Main {
                 System.out.println("Total direct dependencies: " + dependencies.size());
             }
 
+            // Этап 3: Построение графа зависимостей с BFS
+            System.out.println("Building dependency graph using BFS...");
+            DependencyResolver resolver = new DependencyResolver(config);
+            DependencyGraph graph = resolver.buildDependencyGraph();
+
+            System.out.println("\nGraph Statistics");
+            System.out.println("Total packages: " + graph.getAllPackages().size());
+            System.out.println("Has cycles: " + (graph.hasCycles() ? "YES" : "NO"));
+
+            System.out.println("\nAll Packages in Graph");
+            int i = 1;
+            for (String pkg : graph.getAllPackages()) {
+                List<String> deps = graph.getDirectDependencies(pkg);
+                System.out.println(i++ + ". " + pkg + " -> " + deps.size() + " dependencies");
+            }
+
+            System.out.println("\nDirect Dependencies of " + config.getPackageName() + " ===");
+            List<String> directDeps = graph.getDirectDependencies(config.getPackageName());
+            if (directDeps.isEmpty()) {
+                System.out.println("  (no dependencies)");
+            } else {
+                for (String dep : directDeps) {
+                    System.out.println("  - " + dep);
+                }
+            }
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
             e.printStackTrace();
