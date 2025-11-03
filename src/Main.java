@@ -16,7 +16,17 @@ public class Main {
             System.out.println("output_file = " + config.getOutputFile());
             System.out.println();
 
+            // Этап 2: Получение прямых зависимостей
+            if (config.isTestMode()) {
+                System.out.println("Test mode is enabled");
+            } else {
+                System.out.println("Fetching dependencies from PyPI...");
+                PyPIClient client = new PyPIClient();
 
+                List<String> dependencies = client.getDependencies(config.getPackageName());
+
+                System.out.println("Total direct dependencies: " + dependencies.size());
+            }
 
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
