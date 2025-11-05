@@ -51,7 +51,7 @@ public class DependencyGraph {
     public void setHasCycles(boolean hasCycles) {
         this.hasCycles = hasCycles;
     }
-
+    
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
