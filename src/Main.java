@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
         try {
             //Этап 1: Чтение конфигурации
-            String configPath = args.length > 0 ? args[0] : "config.xml";
+            String configPath = args.length > 0 ? args[0] : "config_test.xml";
             ConfigParser parser = new ConfigParser();
             Config config = parser.parse(configPath);
 

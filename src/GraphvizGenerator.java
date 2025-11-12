@@ -39,6 +39,7 @@ public class GraphvizGenerator {
         pb.redirectErrorStream(true);
         Process p;
         try {
+            
             p = pb.start();
         } catch (IOException ioe) {
             throw new Exception("Failed to start 'dot' process. Is Graphviz installed and in PATH?");
