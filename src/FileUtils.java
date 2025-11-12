@@ -21,18 +21,16 @@ public class FileUtils {
                     continue;
                 }
 
-                // Формат: PACKAGE: DEP1, DEP2, DEP3
                 if (!line.contains(":")) {
-                    System.err.println("Warning: Invalid format at line " + lineNumber + ": " + line);
+                    System.out.println("Warning: Invalid format at line " + lineNumber + ": " + line);
                     continue;
                 }
 
                 String[] parts = line.split(":", 2);
                 String packageName = parts[0].trim();
 
-                // Валидация имени пакета (большие латинские буквы)
                 if (!packageName.matches("[A-Z]+")) {
-                    System.err.println("Warning: Package name must be uppercase letters at line " + lineNumber);
+                    System.out.println("Warning: Package name must be uppercase letters at line " + lineNumber);
                     continue;
                 }
 
@@ -44,7 +42,7 @@ public class FileUtils {
                         String cleanDep = dep.trim();
                         if (!cleanDep.isEmpty()) {
                             if (!cleanDep.matches("[A-Z]+")) {
-                                System.err.println("Warning: Dependency name must be uppercase letters: " + cleanDep);
+                                System.out.println("Warning: Dependency name must be uppercase letters: " + cleanDep);
                                 continue;
                             }
                             dependencies.add(cleanDep);

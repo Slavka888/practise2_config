@@ -72,7 +72,7 @@ public class PyPIClient {
             String dep = parts[i].trim();
 
             // Пропускаем условные зависимости
-            if (dep.contains("extra ==") || dep.contains("python_version")) {
+            if (dep.contains("extra ==") || dep.contains("python_version") || dep.contains("platform_system")) {
                 continue;
             }
 

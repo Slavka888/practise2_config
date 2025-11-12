@@ -79,7 +79,7 @@ public class DependencyResolver {
                 Thread.sleep(100);
 
             } catch (Exception e) {
-                System.err.println("    Warning: Could not fetch dependencies for " + currentPackage + ": " + e.getMessage());
+                System.out.println("    Warning: Could not fetch dependencies for " + currentPackage + ": " + e.getMessage());
             }
         }
 
